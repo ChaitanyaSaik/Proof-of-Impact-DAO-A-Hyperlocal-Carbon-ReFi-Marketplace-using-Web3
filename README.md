@@ -86,3 +86,88 @@ To simulate Web3 for MVP purposes, in-memory databases are used:
 
 ## 🗂️ Project Structure
 
+├── app.py # Main Flask app with routes and API endpoints
+├── key.env.txt # Stores environment variables (e.g., OpenAI API Key)
+├── static/
+│ ├── css/
+│ │ └── style.css # Global CSS styles
+│ ├── js/
+│ │ ├── dashboard.js # Dashboard logic
+│ │ ├── marketplace.js # NFT marketplace logic
+│ │ └── script.js # Chatbot, animations, form handlers
+│ ├── assets/ # Placeholder for NFT images
+│ └── img/ # Other images (e.g., chatbot logo)
+├── templates/
+│ ├── index.html # Landing page
+│ ├── marketplace.html # NFT marketplace
+│ └── dashboard.html # User dashboard
+└── hack with gujarat project.docx # Project documentation
+
+
+---
+
+## ⚙️ Python Libraries Installation
+
+> Use a virtual environment for safety and isolation:
+
+### Create a virtual environment
+
+```bash
+python -m venv venv
+```
+## Activate the environment
+### Windows:
+```bash
+.\venv\Scripts\activate
+```
+### Install Dependencies
+```bash
+pip install Flask python-dotenv openai web3
+```
+uuid and time are built-in python libariries
+
+# Running the Project
+## Step-1 Clone the repository
+```bash
+git clone <your repository-url>
+cd proof-of-impact-dao
+```
+replace <your-repository-url> with your Github repo link
+## Step-2 Step up your OpenAI Api key
+create a file named key.env.txt and add:
+```env
+OPEN_API_KEY="YOUR API KEY"
+```
+Replace "your_openai_api_key_here" with your actual OpenAI API key.
+## Step-3 Install dependencies
+```bash
+pip install Flask python-dotenv openai web3
+```
+## Step-4 Run the Flask App
+```bash
+python app.py
+```
+You should see:
+```nignx
+Running on http://127.0.0.1:5000/
+```
+Explore the homepage, dashboard, and marketplace.
+
+---
+
+## Contributing
+Feel free to fork, star ⭐ the repo, and open pull requests for improvements or suggestions!
+
+## License
+This project is open-source and available under the MIT License.
+
+---
+
+## Acknowledgments
+Hack With Gujarat 2025 Organizers
+
+Devfolio Team
+
+OpenAI for providing AI-powered capabilities
+
+Web3 and ReFi community inspiration
