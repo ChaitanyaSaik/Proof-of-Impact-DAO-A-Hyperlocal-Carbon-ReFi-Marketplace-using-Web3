@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Impact DAO - Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <header class="animate__animated animate__fadeInDown">
+        <nav>
+            <div class="logo">Proof of Impact DAO</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/marketplace">Marketplace</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section-padded">
+        <h2 class="section-title animate__animated animate__slideInRight">Your Impact Dashboard</h2>
+        <p class="section-description animate__animated animate__fadeInUp">Manage your decentralized identity, verify your ecological contributions, mint NFTs, and participate in DAO governance.</p>
+
+        <section class="dashboard-overview animate__animated animate__fadeInUp animate__delay-1s">
+            <h3>Your Impact Summary</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>DIDs Registered</h4>
+                    <p id="user-dids">1</p>
+                </div>
+                <div class="stat-card">
+                    <h4>VCs Issued</h4>
+                    <p id="user-vcs">3</p>
+                </div>
+                <div class="stat-card">
+                    <h4>NFTs Minted</h4>
+                    <p id="user-nfts-minted">2</p>
+                </div>
+                <div class="stat-card">
+                    <h4>DAO Votes Cast</h4>
+                    <p id="user-dao-votes">5</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="personalImpactChart"></canvas>
+            </div>
+        </section>
+
+        <section id="did-registration" class="dashboard-section animate__animated animate__fadeInUp animate__delay-1s">
+            <h3>1. Decentralized Identity (DID) Registration <span class="step-icon"><i class="fas fa-id-card"></i></span></h3>
+            <p>Register your unique decentralized identity (DID) to securely participate in the Proof of Impact DAO ecosystem.</p>
+            <form id="did-form">
+                <div class="form-group">
+                    <label for="did-name">Your Name:</label>
+                    <input type="text" id="did-name" placeholder="e.g., Ravi Kumar" required>
+                </div>
+                <div class="form-group">
+                    <label for="did-address">Wallet Address (Placeholder):</label>
+                    <input type="text" id="did-address" placeholder="e.g., 0xAbCdEf1234567890..." required>
+                </div>
+                <button type="submit" class="btn-primary"><i class="fas fa-user-plus"></i> Register DID</button>
+            </form>
+            <p id="did-status" class="status-message"></p>
+        </section>
+
+        <section id="vc-issuance" class="dashboard-section animate__animated animate__fadeInUp animate__delay-2s">
+            <h3>2. Verifiable Credential (VC) Issuance (Mocked) <span class="step-icon"><i class="fas fa-award"></i></span></h3>
+            <p>Receive verifiable credentials from trusted oracles (like NGOs or universities) confirming your specific ecological impact, such as carbon sequestration or soil regeneration.</p>
+            <form id="vc-form">
+                <div class="form-group">
+                    <label for="vc-did">Your Registered DID:</label>
+                    <input type="text" id="vc-did" placeholder="Your generated DID" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="vc-type">Impact Type:</label>
+                    <select id="vc-type" required>
+                        <option value="">Select Impact Type</option>
+                        <option value="carbon_sequestration">Carbon Sequestration (e.g., Tree Plantation)</option>
+                        <option value="soil_regeneration">Soil Regeneration (e.g., Organic Farming)</option>
+                        <option value="wetland_restoration">Wetland Restoration</option>
+                        <option value="waste_management">Waste Management</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vc-data">Impact Data (e.g., Tons CO2, Hectares, KGs):</label>
+                    <input type="number" id="vc-data" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="vc-verifier">Verifier (Mock: e.g., Gujarat Agriculture University):</label>
+                    <input type="text" id="vc-verifier" value="Gujarat Agriculture University" readonly required>
+                </div>
+                <button type="submit" class="btn-primary"><i class="fas fa-handshake"></i> Request VC</button>
+            </form>
+            <p id="vc-status" class="status-message"></p>
+        </section>
+
+        <section id="nft-minting" class="dashboard-section animate__animated animate__fadeInUp animate__delay-3s">
+            <h3>3. Mint Proof-of-Impact NFT <span class="step-icon"><i class="fas fa-palette"></i></span></h3>
+            <p>Tokenize your verified ecological units into unique, immutable NFTs. Each NFT represents a verifiable unit of impact.</p>
+            <form id="nft-form">
+                <div class="form-group">
+                    <label for="nft-vc-id">Associated VC ID (from above):</label>
+                    <input type="text" id="nft-vc-id" placeholder="e.g., VC-XYZ123" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="nft-name">NFT Title (e.g., "Ravi's Organic Farm - Carbon Sequestration"):</label>
+                    <input type="text" id="nft-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="nft-description">Description:</label>
+                    <textarea id="nft-description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="nft-location">Geo-tagged Location (e.g., "22.2587° N, 71.1924° E"):</label>
+                    <input type="text" id="nft-location" required>
+                </div>
+                <div class="form-group">
+                    <label for="nft-image">Image URL (Placeholder for satellite/IoT data):</label>
+                    <input type="url" id="nft-image" value="https://via.placeholder.com/250x250?text=Impact+NFT" required>
+                </div>
+                <button type="submit" class="btn-primary"><i class="fas fa-money-bill-wave"></i> Mint NFT</button>
+            </form>
+            <p id="nft-status" class="status-message"></p>
+        </section>
+
+        <section id="ai-prediction" class="dashboard-section animate__animated animate__fadeInUp animate__delay-4s">
+            <h3>4. AI-Powered Impact Prediction <span class="step-icon"><i class="fas fa-brain"></i></span></h3>
+            <p>Get insights into your potential ecological impact. Our AI model can suggest optimal impact types and predict carbon offset potential based on your land and farming data.</p>
+            <form id="ai-prediction-form">
+                <div class="form-group">
+                    <label for="land-area">Land Area (in Hectares):</label>
+                    <input type="number" id="land-area" step="0.1" min="0.1" placeholder="e.g., 2.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="soil-type">Soil Type:</label>
+                    <select id="soil-type" required>
+                        <option value="">Select Soil Type</option>
+                        <option value="loam">Loam</option>
+                        <option value="sandy">Sandy</option>
+                        <option value="clay">Clay</option>
+                        <option value="silt">Silt</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="farming-method">Current/Proposed Farming Method:</label>
+                    <select id="farming-method" required>
+                        <option value="">Select Method</option>
+                        <option value="conventional">Conventional Farming</option>
+                        <option value="organic">Organic Farming</option>
+                        <option value="regenerative">Regenerative Agriculture</option>
+                        <option value="agroforestry">Agroforestry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rainfall-mm">Annual Rainfall (in mm):</label>
+                    <input type="number" id="rainfall-mm" step="10" min="0" placeholder="e.g., 800" required>
+                </div>
+                <button type="submit" class="btn-primary"><i class="fas fa-chart-line"></i> Get Prediction</button>
+            </form>
+            <p id="prediction-status" class="status-message"></p>
+            <div id="prediction-results" class="prediction-results hidden">
+                <h4>AI Prediction:</h4>
+                <p><strong>Optimal Impact Type:</strong> <span id="predicted-impact-type"></span></p>
+                <p><strong>Predicted Carbon Offset:</strong> <span id="predicted-carbon-offset"></span> Tons CO2 / Year</p>
+                <p class="suggestion-text"><em>Based on your inputs, implementing <span id="suggestion-method"></span> practices could significantly enhance your carbon sequestration.</em></p>
+            </div>
+        </section>
+
+
+        <section id="dao-voting" class="dashboard-section animate__animated animate__fadeInUp animate__delay-5s">
+            <h3>5. DAO Governance (Snapshot Integration Mock) <span class="step-icon"><i class="fas fa-landmark"></i></span></h3>
+            <p>Participate in community proposals, project funding approvals, and dispute resolution through the DAO.</p>
+            <p>This section demonstrates how you would interact with a DAO voting platform like Snapshot for transparent governance.</p>
+            <a href="https://snapshot.org/#/" target="_blank" class="btn-secondary external-link-btn"><i class="fas fa-external-link-alt"></i> Go to Snapshot (External Link)</a>
+            <div class="mock-voting-section">
+                <h4>Simulate Basic Voting Interaction:</h4>
+                <form id="dao-vote-form">
+                    <div class="form-group">
+                        <label for="vote-proposal">Select Proposal:</label>
+                        <select id="vote-proposal" required>
+                            <option value="">Select a mock proposal</option>
+                            <option value="project-funding-1">Approve Project GreenGrove Funding</option>
+                            <option value="dispute-resolution-A">Resolve Dispute A: Tree Counting Accuracy</option>
+                            <option value="governance-update-B">Propose Governance Update: Fee Structure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vote-choice">Your Vote:</label>
+                        <select id="vote-choice" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="abstain">Abstain</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary"><i class="fas fa-vote-yea"></i> Submit Vote (Mock)</button>
+                </form>
+                <p id="dao-status" class="status-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="animate__animated animate__fadeInUp animate__delay-6s">
+        <p>&copy; 2025 Proof of Impact DAO. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

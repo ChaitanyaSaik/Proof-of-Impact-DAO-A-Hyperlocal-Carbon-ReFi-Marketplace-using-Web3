@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof of Impact DAO - Marketplace</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-animation"></div>
+    <header class="animate__animated animate__fadeInDown">
+        <nav>
+            <div class="logo">Proof of Impact DAO</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/marketplace">Marketplace</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section-padded">
+        <h2 class="section-title animate__animated animate__slideInRight">Carbon Credit ReFi Marketplace</h2>
+        <p class="section-description animate__animated animate__fadeInUp">Transparent, traceable, and tamper-proof NFT-based carbon offset transactions.</p>
+
+        <section class="marketplace-overview animate__animated animate__fadeInUp animate__delay-1s">
+            <h3>Market Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Total NFTs Listed</h4>
+                    <p id="total-nfts">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Volume Traded (USD)</h4>
+                    <p id="volume-traded">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Projects Supported</h4>
+                    <p id="projects-supported">0</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="marketImpactChart"></canvas>
+            </div>
+        </section>
+
+        <section class="nft-listings-section animate__animated animate__fadeInUp animate__delay-2s">
+            <h3>Available Proof-of-Impact NFTs</h3>
+            <div id="nft-listings" class="nft-grid">
+                <div class="nft-card animate__animated animate__zoomIn">
+                    <img src="\static\assets\carbon subsequent.jpeg" alt="Carbon Credit NFT Image">
+                    <div class="nft-info">
+                        <h4 class="nft-title">Ravi's Organic Farm - Carbon Sequestration</h4>
+                        <p class="nft-description">1 Ton CO2 sequestered through regenerative organic farming practices in rural Gujarat.</p>
+                        <div class="nft-metadata">
+                            <span>🌍 Location: 22.2587° N, 71.1924° E</span>
+                            <span>✅ Verified by: Gujarat Agriculture University</span>
+                            <span>📅 Minted: May 20, 2025</span>
+                            <span>🔗 VCs: VC-XYZ123 (linked)</span>
+                        </div>
+                        <div class="nft-price">
+                            <span>Price:</span>
+                            <span class="price-value">10 USDC</span>
+                        </div>
+                        <button class="btn-primary buy-btn">Buy Now</button>
+                    </div>
+                </div>
+                 <div class="nft-card animate__animated animate__zoomIn">
+                    <img src="\static\assets\urban.jpeg" alt="Wetland Restoration NFT Image">
+                    <div class="nft-info">
+                        <h4 class="nft-title">Wetland Ecosystem Revival - Area Z</h4>
+                        <p class="nft-description">Rejuvenation of 5 hectares of wetlands, enhancing biodiversity and carbon sink capacity.</p>
+                        <div class="nft-metadata">
+                            <span>🌍 Location: 21.0000° N, 72.0000° E</span>
+                            <span>✅ Verified by: Local Environmental NGO</span>
+                            <span>📅 Minted: April 15, 2025</span>
+                            <span>🔗 VCs: VC-ABC456 (linked)</span>
+                        </div>
+                        <div class="nft-price">
+                            <span>Price:</span>
+                            <span class="price-value">15 USDC</span>
+                        </div>
+                        <button class="btn-primary buy-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <p id="loading-message" class="info-message">Loading NFTs...</p>
+            <p id="no-nfts-message" class="info-message hidden">No NFTs available at the moment. Check back soon!</p>
+        </section>
+    </main>
+
+    <footer class="animate__animated animate__fadeInUp animate__delay-3s">
+        <p>&copy; 2025 Proof of Impact DAO. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/marketplace.js') }}"></script>
+</body>
+</html>
